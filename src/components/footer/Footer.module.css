@@ -1,0 +1,59 @@
+.footer {
+    background-color: #f2f2f2;
+    user-select: none;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2em;
+    padding: 2.5em 0;
+}
+
+@media (max-width: 600px) {
+    .content {
+        flex-direction: column;
+        margin-left: 40%;
+    }
+}
+
+.column {
+    flex: 0 1 18%;
+}
+
+.column h5 {
+    text-transform: uppercase;
+    color: #2f2f2f;
+}
+
+.column ul {
+    display: flex;
+    padding: 0;
+    flex-direction: column;
+}
+
+.column ul li {
+    display: block;
+}
+
+.column ul li a {
+    color: #19caaf;
+}
+
+.column ul li a:hover {
+    color: #2f2f2f;
+}
+
+.social i {
+    width: 3ch;
+}
+
+.copyright {
+    padding: 2em 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.copyright p {
+    color: #888;
+}

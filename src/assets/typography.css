@@ -1,0 +1,74 @@
+/* typography.css */
+html {
+    font: 12px/1.5 Ubuntu, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body,
+form,
+input,
+select,
+button,
+textarea,
+table,
+th,
+td {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    font-size: 2.7em;
+}
+h2 {
+    font-size: 2.1em;
+}
+h3 {
+    font-size: 1.7em;
+}
+h4 {
+    font-size: 1.4em;
+}
+h5 {
+    font-size: 1.2em;
+}
+h6 {
+    font-size: 1em;
+}
+
+p:not(:only-child) {
+    margin-bottom: 1em;
+}
+
+p,
+ul,
+ol {
+    padding-bottom: 1.5em;
+}
+
+ul,
+ol {
+    padding-left: 1.5em;
+}
+
+ul li,
+ol li {
+    list-style-position: outside;
+    padding-bottom: 0.8em;
+    list-style-type: none;
+}
+
+a,
+a:hover {
+    display: block;
+    text-decoration: none;
+}

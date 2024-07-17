@@ -1,7 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
+import "./assets/reset.css";
+import "./assets/font-ubuntu.css";
+import "./assets/typography.css";
+import "./assets/fontawesome.css";
+import "./assets/layout.css";
+
 import App from "./App.jsx";
-import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
