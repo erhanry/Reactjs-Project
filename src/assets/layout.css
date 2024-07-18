@@ -2,5 +2,63 @@
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
+    margin-bottom: 2em;
     padding: 0 1em;
+}
+
+.wrapper > .main_heading {
+    background-color: #f2f2f2;
+    color: #2f2f2f;
+    margin: 2rem 0;
+    padding: 1rem;
+    font-weight: normal;
+}
+
+.wrapper > .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2em;
+}
+
+.wrapper > .product-list > article {
+    border: 1px solid #e7e7e7;
+    flex: 0 1 20%;
+    flex-basis: 23em;
+    padding: 1.6em;
+}
+
+.wrapper > .product-list > article > figure {
+    margin-bottom: 1em;
+    user-select: none;
+}
+
+.wrapper > .product-list > article > .title {
+    color: #19caaf;
+    font-size: 1.4em;
+}
+
+.wrapper > .product-list > article > .amount,
+.wrapper > .product-list > article > .description {
+    color: #888;
+}
+
+.wrapper > .product-list > article > .amount {
+    padding: 1em 0;
+    margin: 0;
+}
+
+.wrapper > .product-list > article > .btn {
+    display: inline;
+    color: #fff;
+    background-color: #2f2f2f;
+    border-radius: 0.55em;
+    padding: 0.8em;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+}
+
+.wrapper > .product-list > article > .btn:hover {
+    background-color: #19caaf;
 }

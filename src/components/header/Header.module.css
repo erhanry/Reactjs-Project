@@ -2,6 +2,7 @@
 .header {
     background-color: #f2f2f2;
     user-select: none;
+    margin-bottom: 2em;
 }
 
 .row1 {

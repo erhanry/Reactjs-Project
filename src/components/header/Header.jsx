@@ -67,7 +67,7 @@ export default function Header() {
                                 <a href="/Home">Home</a>
                             </li>
                             <li>
-                                <a href="/Products">Products</a>
+                                <a href="/products">Products</a>
                             </li>
                             <li>
                                 <a href="kk">Sale</a>
