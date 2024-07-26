@@ -43,7 +43,8 @@ export default function Login() {
                                 name="email"
                                 onChange={changeHandler}
                                 value={values.email}
-                                autoComplete="on"
+                                autoComplete="off"
+                                required
                             />
                         </div>
                         <div className="field">
@@ -54,7 +55,8 @@ export default function Login() {
                                 name="password"
                                 onChange={changeHandler}
                                 value={values.password}
-                                autoComplete="on"
+                                autoComplete="off"
+                                required
                             />
                         </div>
                         <button className="btn">Sign In</button>

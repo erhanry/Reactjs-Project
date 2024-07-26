@@ -60,7 +60,6 @@ export default function Register() {
                                 name="lastName"
                                 onChange={changeHandler}
                                 value={values.lastName}
-                                required
                             />
                         </div>
                         <div className="field">
@@ -75,6 +74,7 @@ export default function Register() {
                                 name="password"
                                 onChange={changeHandler}
                                 value={values.password}
+                                autoComplete="off"
                                 required
                             />
                         </div>
@@ -86,6 +86,7 @@ export default function Register() {
                                 name="confirmPassword"
                                 onChange={changeHandler}
                                 value={values.confirmPassword}
+                                autoComplete="off"
                                 required
                             />
                         </div>
