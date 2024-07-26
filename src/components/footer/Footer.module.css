@@ -38,6 +38,7 @@
 }
 
 .column ul li a {
+    display: inline;
     color: #19caaf;
 }
 

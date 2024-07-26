@@ -1,6 +1,12 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+
+import { AuthContext } from "../../context/AuthContext";
 import styles from "./Header.module.css";
 
 export default function Header() {
+    const { isAuthenticated, cart } = useContext(AuthContext);
+
     return (
         <header className={styles.header}>
             <section className="wrapper">
@@ -29,24 +35,29 @@ export default function Header() {
                         </li>
                     </ul>
                     <ul className={styles.user}>
-                        <li>
-                            <a href="/login">Log in</a>
-                        </li>
+                        {!isAuthenticated && (
+                            <>
+                                <li>
+                                    <Link to="/login">Log in</Link>
+                                </li>
+                                <li>
+                                    <Link to="/register">Create an account</Link>
+                                </li>
+                            </>
+                        )}
 
-                        <li>
-                            <a href="/register">Create an account</a>
-                        </li>
-
-                        <li className="checkout">
-                            <a href="/cart">Check out</a>
-                        </li>
+                        {isAuthenticated && (
+                            <li>
+                                <Link to="/logout">Logout</Link>
+                            </li>
+                        )}
                     </ul>
                 </div>
                 <div className={styles.row2}>
                     <figure>
-                        <a href="/">
+                        <Link to="/">
                             <img src="/images/logo.png" alt="Electronics Logo" />
-                        </a>
+                        </Link>
                     </figure>
                     <form className={styles.search}>
                         <input type="text" name="q" />
@@ -64,26 +75,26 @@ export default function Header() {
                     <nav>
                         <ul>
                             <li>
-                                <a href="/Home">Home</a>
+                                <Link to="/home">Home</Link>
                             </li>
                             <li>
-                                <a href="/products">Products</a>
+                                <Link to="/products">Products</Link>
                             </li>
                             <li>
-                                <a href="kk">Sale</a>
+                                <Link to="/sale">Sale</Link>
                             </li>
                             <li>
-                                <a href="kk">About us</a>
+                                <Link to="/about-us">About us</Link>
                             </li>
                             <li>
-                                <a href="kk">Contact us</a>
+                                <Link to="/contact-us">Contact us</Link>
                             </li>
                         </ul>
                     </nav>
                     <div className={styles.cart}>
-                        <a href="">
-                            <i className="fa fa-shopping-cart"></i>Cart : 2 item(s)
-                        </a>
+                        <Link to="/cart">
+                            <i className="fa fa-shopping-cart"></i>Cart : {cart.length} item(s)
+                        </Link>
                     </div>
                 </div>
             </section>
