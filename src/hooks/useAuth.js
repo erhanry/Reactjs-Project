@@ -26,14 +26,14 @@ export const useRegister = () => {
 
     const registerService = async ({ firstName, lastName, email, password, confirmPassword }) => {
         try {
-            if (firstName.length > 2) {
+            if (firstName.length < 2) {
                 throw { message: "First name must be at least 2 character long" };
             }
-            if (lastName.length > 2) {
+            if (lastName.length < 2) {
                 throw { message: "Laast name must be at least 2 character long" };
             }
 
-            if (password.length > 2) {
+            if (password.length < 6) {
                 throw { message: "Password must be at least 6 character long" };
             }
 
