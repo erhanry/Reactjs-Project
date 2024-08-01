@@ -1,4 +1,4 @@
-export default function ProdictArticle() {
+export default function ProductArticle() {
     return (
         <article>
             <figure>
