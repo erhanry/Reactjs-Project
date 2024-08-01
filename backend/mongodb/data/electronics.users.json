@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "66a37f77aad33e026540ba56"
+  },
+  "firstName": "Erhan",
+  "lastName": "Ysuf",
+  "email": "erhan.ysuf@gmail.com",
+  "password": "$2a$10$uQV8gXpR1TOs5tvxISMLTObOb4NSwXjQioWgvD1KiF.f/aQgyqaBG",
+  "createdProduct": [],
+  "boughtProduct": [],
+  "createdAt": {
+    "$date": "2024-07-26T10:50:31.122Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-26T10:50:31.122Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66a37fceaad33e026540ba59"
+  },
+  "firstName": "Admin",
+  "lastName": "Admin",
+  "email": "admin@gmail.com",
+  "password": "$2a$10$MwS/mZRApXNnSiWdL7iaBeAjMk9q6i4s0nvYy8edSKs4ytavvL76.",
+  "createdProduct": [],
+  "boughtProduct": [],
+  "createdAt": {
+    "$date": "2024-07-26T10:51:58.373Z"
+  },
+  "updatedAt": {
+    "$date": "2024-07-26T10:51:58.373Z"
+  },
+  "__v": 0
+}]

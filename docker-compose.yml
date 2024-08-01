@@ -1,0 +1,68 @@
+name: react-project
+services:
+    mongo:
+        build: ./backend/mongodb
+        container_name: mongodb
+        restart: "always"
+        ports:
+            - 27017:27017
+        volumes:
+            - mongodb:/data/db
+            - mongodb:/data/configdb
+        networks:
+            - web
+
+    express:
+        build: ./backend/express
+        container_name: express
+        restart: "always"
+        ports:
+            - 83:83
+        environment:
+            APP_PORT: 83
+            MONGO_HOST: mongo
+            MONGO_PORT: 27017
+            MONGO_DATABASE: electronics
+        networks:
+            - web
+        depends_on:
+            - mongo
+
+    development:
+        build:
+            context: .
+            dockerfile: Dockerfile.dev
+        container_name: development
+        restart: "always"
+        ports:
+            - 81:81
+        environment:
+            CHOKIDAR_USEPOLLING: true
+            VITE_PROXY_API_TARGET: http://localhost:83/api
+        networks:
+            - web
+        depends_on:
+            - mongo
+
+    preview:
+        build:
+            context: .
+            dockerfile: Dockerfile.prod
+        container_name: preview
+        restart: "always"
+        ports:
+            - 82:80
+        environment:
+            CHOKIDAR_USEPOLLING: true
+            VITE_PROXY_API_TARGET: http://localhost:83/api
+        networks:
+            - web
+        depends_on:
+            - mongo
+
+volumes:
+    mongodb:
+        name: "mongo-volume"
+networks:
+    web:
+        driver: bridge
