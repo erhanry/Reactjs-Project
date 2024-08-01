@@ -18,9 +18,6 @@ export default function Footer() {
                             <li>
                                 <Link to="/About">About Us</Link>
                             </li>
-                            <li>
-                                <Link to="/Contact">Contact us</Link>
-                            </li>
                         </ul>
                     </div>
                     <div className={styles.column}>

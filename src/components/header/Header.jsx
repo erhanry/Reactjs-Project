@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { AuthContext } from "../../context/AuthContext";
+import { useAuthContext } from "../../context/AuthContext";
 import styles from "./Header.module.css";
 
 export default function Header() {
-    const { isAuthenticated, cart } = useContext(AuthContext);
+    const { isAuthenticated, cartItems } = useAuthContext();
 
     return (
         <header className={styles.header}>
@@ -86,14 +85,11 @@ export default function Header() {
                             <li>
                                 <Link to="/about-us">About us</Link>
                             </li>
-                            <li>
-                                <Link to="/contact-us">Contact us</Link>
-                            </li>
                         </ul>
                     </nav>
                     <div className={styles.cart}>
                         <Link to="/cart">
-                            <i className="fa fa-shopping-cart"></i>Cart : {cart.length} item(s)
+                            <i className="fa fa-shopping-cart"></i>Cart : {cartItems.length} item(s)
                         </Link>
                     </div>
                 </div>
