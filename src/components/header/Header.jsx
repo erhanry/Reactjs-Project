@@ -3,11 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { useAuthContext } from "../../context/AuthContext";
 import styles from "./Header.module.css";
 
-export default function Header() {
-    const { isAuthenticated, cartItems } = useAuthContext();
-    let location = useLocation();
+const ignorePath = ["products", "login", "register"];
 
-    const showSidebarHeader = !location.pathname.startsWith("/products");
+export default function Header() {
+    const { pathname } = useLocation();
+
+    const { isAuthenticated, cartItems } = useAuthContext();
+    const showSidebarHeader = !ignorePath.some((path) => pathname.startsWith(`/${path}`));
 
     return (
         <header className={styles.header}>

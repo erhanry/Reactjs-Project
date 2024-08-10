@@ -7,7 +7,7 @@ export default function usePersistedCookie(key) {
             .find((row) => row.startsWith(key))
             ?.split("=")[1];
 
-        return authCookie || "a";
+        return authCookie;
     });
 
     const clearCookie = () => {

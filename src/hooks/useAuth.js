@@ -27,7 +27,7 @@ export const useLogin = () => {
                 throw result.message[0];
             }
 
-            changeAuthState(result);
+            changeAuthState({ ...result, isAuthenticated: true });
             navigate("/");
         } catch (err) {
             setError(err);
@@ -75,7 +75,7 @@ export const useRegister = () => {
                 throw result.message[0];
             }
 
-            changeAuthState(result);
+            changeAuthState({ ...result, isAuthenticated: true });
             navigate("/");
         } catch (err) {
             setError(err);

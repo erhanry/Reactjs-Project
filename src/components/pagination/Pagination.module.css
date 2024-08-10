@@ -1,0 +1,41 @@
+.pagination {
+    background-color: #f2f2f2;
+    margin-top: 2em;
+    display: flex;
+    padding: 0.5em 1.5em;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+}
+
+.products_count {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-style: italic;
+}
+
+.list {
+    display: flex;
+    padding: 0;
+    gap: 0.2em;
+}
+
+.list li {
+    padding-bottom: 0;
+}
+
+.list .current,
+.list li a {
+    text-align: center;
+    padding: 0.4em 0.7em;
+}
+
+.list li a:hover {
+    background-color: #2f2f2f;
+    color: #fff;
+}
+
+.list .current {
+    color: #fff;
+    background-color: #19caaf;
+}
