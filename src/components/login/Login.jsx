@@ -3,16 +3,19 @@ import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useLogin } from "../../hooks/useAuth";
 
-const initialValues = { email: "", password: "" };
+const initialValues = {
+    email: "",
+    password: "",
+};
 
 export default function Login() {
-    const { message, loginService } = useLogin();
+    const { loginService, error } = useLogin();
 
-    const { values, changeHandler, submitHandler } = useForm(initialValues, loginService);
+    const { values, changeHandler, submitHandler } = useForm(loginService, initialValues);
 
     return (
         <>
-            <h5 className="main_heading">Login or create an account</h5>
+            <h5 className="main_heading">Login</h5>
             <div className="account_flex">
                 <article className="account_left">
                     <h4>New here?</h4>
@@ -32,9 +35,9 @@ export default function Login() {
 
                 <article className="account_right">
                     <h4>Already registered?</h4>
-                    <form onSubmit={submitHandler}>
-                        {message && <p className="alert-form-info">{message}</p>}
+                    <div className="alert-form-info">{error}</div>
 
+                    <form onSubmit={submitHandler}>
                         <div className="field">
                             <label htmlFor="email">Email Address</label>
                             <input

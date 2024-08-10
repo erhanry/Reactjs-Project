@@ -1,13 +1,10 @@
-import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { useLogout } from "../../hooks/useAuth";
 
 export default function Logout() {
-    const logout = useLogout();
+    const { logoutService } = useLogout();
 
-    useEffect(() => {
-        async () => logout;
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    logoutService();
 
-    return null;
+    return <Navigate to="/" />;
 }

@@ -12,13 +12,13 @@ const initialValues = {
 };
 
 export default function Register() {
-    const { message, registerService } = useRegister();
+    const { registerService, error } = useRegister();
 
-    const { values, changeHandler, submitHandler } = useForm(initialValues, registerService);
+    const { values, changeHandler, submitHandler } = useForm(registerService, initialValues);
 
     return (
         <>
-            <h5 className="main_heading">Login or create an account</h5>
+            <h5 className="main_heading">Registration</h5>
             <div className="account_flex">
                 <article className="account_left">
                     <h4>New here?</h4>
@@ -38,9 +38,9 @@ export default function Register() {
 
                 <article className="account_right">
                     <h4>Create an account</h4>
-                    <form onSubmit={submitHandler}>
-                        {message && <p className="alert-form-info">{message}</p>}
+                    <div className="alert-form-info">{error}</div>
 
+                    <form onSubmit={submitHandler}>
                         <div className="field">
                             <label htmlFor="firstName">First Name</label>
                             <input
