@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import request from "../services/requester";
+import request from "../api/requester";
 
 export function useGetAllProducts() {
     const [products, setProducts] = useState([]);
@@ -12,7 +12,7 @@ export function useGetAllProducts() {
         })();
     }, []);
 
-    return [products, setProducts];
+    return products;
 }
 
 export function useGetOneProduct(productId) {
@@ -25,5 +25,5 @@ export function useGetOneProduct(productId) {
         })();
     }, [productId]);
 
-    return [product, setProduct];
+    return product;
 }
