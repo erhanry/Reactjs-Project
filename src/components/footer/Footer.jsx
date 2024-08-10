@@ -10,7 +10,7 @@ export default function Footer() {
                         <h5>quick menu</h5>
                         <ul>
                             <li>
-                                <Link to="/Home">Home</Link>
+                                <Link to="/">Home</Link>
                             </li>
                             <li>
                                 <Link to="/Search">Search</Link>
