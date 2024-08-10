@@ -1,40 +1,66 @@
-import { useContext, useEffect } from "react";
-
-import { AuthContext } from "../context/AuthContext";
-import request from "../services/requester";
 import { useNavigate } from "react-router-dom";
+
+import { useAuthContext } from "../context/AuthContext";
+import { useDelayedError } from "./useDelayedError";
+import request from "../api/requester";
+
+const regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$/gim;
 
 export const useLogin = () => {
     const navigate = useNavigate();
-    const { message, changeAuthState } = useContext(AuthContext);
+    const { changeAuthState } = useAuthContext();
+    const { error, setError } = useDelayedError("", 3000);
 
     const loginService = async ({ email, password }) => {
         try {
+            if (!email.match(regex)) {
+                throw "Invalid Email Address";
+            }
+
+            if (password.length < 6) {
+                throw "Password must be at least 6 character long";
+            }
+
             const result = await request.post("/users/login", { email, password });
+
+            if (result?.message?.length > 0) {
+                throw result.message[0];
+            }
+
             changeAuthState(result);
             navigate("/");
         } catch (err) {
-            changeAuthState(err);
+            setError(err);
         }
     };
-    return { message, loginService };
+
+    return { loginService, error };
 };
 
 export const useRegister = () => {
     const navigate = useNavigate();
-    const { message, changeAuthState } = useContext(AuthContext);
+    const { changeAuthState } = useAuthContext();
+    const { error, setError } = useDelayedError("", 3000);
 
     const registerService = async ({ firstName, lastName, email, password, confirmPassword }) => {
         try {
             if (firstName.length < 2) {
-                throw { message: "First name must be at least 2 character long" };
+                throw "First name must be at least 2 character long";
             }
             if (lastName.length < 2) {
-                throw { message: "Laast name must be at least 2 character long" };
+                throw "Laast name must be at least 2 character long";
+            }
+
+            if (!email.match(regex)) {
+                throw "Invalid Email Address";
             }
 
             if (password.length < 6) {
-                throw { message: "Password must be at least 6 character long" };
+                throw "Password must be at least 6 character long";
+            }
+
+            if (password !== confirmPassword) {
+                throw "Password don't math";
             }
 
             const result = await request.post("/users/register", {
@@ -44,26 +70,32 @@ export const useRegister = () => {
                 password,
                 confirmPassword,
             });
+
+            if (result?.message?.length > 0) {
+                throw result.message[0];
+            }
+
             changeAuthState(result);
             navigate("/");
         } catch (err) {
-            changeAuthState(err);
+            setError(err);
         }
     };
-    return { message, registerService };
+    return { registerService, error };
 };
 
 export const useLogout = () => {
     const navigate = useNavigate();
-    const { changeAuthState } = useContext(AuthContext);
+    const { changeAuthState } = useAuthContext();
 
-    useEffect(() => {
-        (async () => {
-            await request.get(`/users/logout`);
+    const logoutService = async () => {
+        try {
+            await request.get("/users/logout");
+
             changeAuthState({});
-            navigate("/");
-        })();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    return null;
+        } catch (err) {
+            console.log(err.message);
+        }
+    };
+    return { logoutService };
 };
