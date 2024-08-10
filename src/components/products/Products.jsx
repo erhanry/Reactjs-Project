@@ -5,7 +5,7 @@ import Pagination from "../pagination/Pagination";
 import { useParams } from "react-router-dom";
 
 export default function Products() {
-    const pagination_limit = 2;
+    const pagination_limit = 4;
 
     let { pageId = 1 } = useParams();
     let products_count = useGetProductsCount();
