@@ -1,0 +1,7 @@
+.home_list {
+    display: flex;
+}
+
+.home_list article {
+    flex: 1 1 auto;
+}

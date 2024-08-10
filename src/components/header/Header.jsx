@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { useAuthContext } from "../../context/AuthContext";
 import styles from "./Header.module.css";
 
 export default function Header() {
     const { isAuthenticated, cartItems } = useAuthContext();
+    let location = useLocation();
+
+    const showSidebarHeader = !location.pathname.startsWith("/products");
 
     return (
         <header className={styles.header}>
@@ -68,9 +71,11 @@ export default function Header() {
                     </address>
                 </div>
                 <div className={styles.row3}>
-                    <div className={styles.sidebar}>
-                        <h3>Collections</h3>
-                    </div>
+                    {showSidebarHeader && (
+                        <div className={styles.sidebar}>
+                            <h3>Collections</h3>
+                        </div>
+                    )}
                     <nav>
                         <ul>
                             <li>

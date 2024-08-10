@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useForm(initialValues, submitCallback) {
+export function useForm(submitCallback, initialValues) {
     const [values, setValues] = useState(initialValues);
 
     const changeHandler = (e) => {
@@ -13,10 +13,10 @@ export function useForm(initialValues, submitCallback) {
         }));
     };
 
-    const submitHandler = (e) => {
+    const submitHandler = async (e) => {
         e.preventDefault();
 
-        submitCallback(values);
+        await submitCallback(values);
 
         setValues(initialValues);
     };

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { AuthContextProvider } from "./context/AuthContext";
 import Header from "./components/header/Header";
@@ -8,6 +8,7 @@ import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
 import Home from "./components/home/Home";
+import NotFound from "./components/notfound/NotFound";
 
 function App() {
     return (
@@ -17,22 +18,16 @@ function App() {
                 <section className="wrapper">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/home" element={<Home />} />
                         <Route path="/products" element={<Products />} />
                         <Route path="/category/:categoryId" element={<Home />} />
-                        {/* <Route path="/about" element={<p>dfdaadf</p>}>
-                            <Route path="mission" element="" />
-                            <Route path="our-team" element="" />
-                            <Route path="contact-us" element="" />
-                        </Route> */}
                         <Route path="/articles" element="" />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/logout" element={<Logout />} />
                         <Route path="/articles/:articleId" element="" />
                         <Route path="/pricing" element="" />
-                        <Route path="/not-found" element="" />
-                        <Route path="/*" element="" />
+                        <Route path="/not-found" re element={<NotFound />} />
+                        <Route path="/*" element={<Navigate to="/not-found" />} />
                     </Routes>
                 </section>
             </main>
