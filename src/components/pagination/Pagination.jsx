@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import styles from "./Pagination.module.css";
 
-export default function Paginsation({ pagination_limit, products_count, pageId }) {
+export default function Pagination({ pagination_limit, products_count, pageId, base_path }) {
     pageId = Number(pageId);
 
     const last_product = pageId * pagination_limit;
@@ -23,7 +23,7 @@ export default function Paginsation({ pagination_limit, products_count, pageId }
             <ul className={styles.list}>
                 {prev_page > 0 && (
                     <li>
-                        <Link to={`/products/${prev_page}/page`}>{prev_page}</Link>
+                        <Link to={`/${base_path}/${prev_page}/page`}>{prev_page}</Link>
                     </li>
                 )}
                 <li>
@@ -31,7 +31,7 @@ export default function Paginsation({ pagination_limit, products_count, pageId }
                 </li>
                 {next_page > 0 && (
                     <li>
-                        <Link to={`/products/${next_page}/page`}>{next_page}</Link>
+                        <Link to={`/${base_path}/${next_page}/page`}>{next_page}</Link>
                     </li>
                 )}
             </ul>

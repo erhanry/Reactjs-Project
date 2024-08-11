@@ -7,7 +7,6 @@ export const AuthContext = createContext({
     lastName: "",
     email: "",
     isAuthenticated: false,
-    cartItems: [],
     changeAuthState: () => null,
 });
 
@@ -25,7 +24,6 @@ export function AuthContextProvider(props) {
         lastName: authState.lastName,
         email: authState.email,
         isAuthenticated: authState.isAuthenticated || !!cookie,
-        cartItems: [],
         changeAuthState,
     };
 
