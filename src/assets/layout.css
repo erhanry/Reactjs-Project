@@ -154,16 +154,19 @@
     padding-bottom: 2em;
 }
 
+.wrapper .AboutUs,
 .wrapper .NotFound {
     display: flex;
 }
 
+.wrapper .AboutUs>article,
 .wrapper .NotFound>article {
     flex: 1 1 auto;
     font-size: 1.2em;
     font-weight: normal;
 }
 
+.wrapper .AboutUs h4,
 .wrapper .NotFound h4 {
     background-color: #f2f2f2;
     color: #2f2f2f;
@@ -173,6 +176,7 @@
     text-align: center;
 }
 
+.wrapper .AboutUs p,
 .wrapper .NotFound p {
     text-align: center;
     font: inherit;
@@ -180,11 +184,72 @@
     padding: 0;
 }
 
+.wrapper .AboutUs>article>p>a,
 .wrapper .NotFound>article>p>a {
     display: inline;
     color: #19caaf;
 }
 
+
 .wrapper .NotFound>article>p>a:hover {
     color: black;
+}
+
+.care,
+.events,
+.team {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.care ul,
+.events ul,
+.team ul {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.care li,
+.events li {
+    flex: 1 1 25%;
+}
+
+.care li .performance {
+    margin-top: 1em;
+    color: #62bfc4;
+    font-size: 3.8em;
+}
+
+.care li .branch {
+    font-size: 1.5em;
+}
+
+
+
+.team img,
+.events img {
+    margin: 0 auto;
+    width: 12em;
+}
+
+.team li {
+    flex: 1 1 18%;
+}
+
+.team img {
+    border: 1px solid #e0e0e0;
+}
+
+.events ul li .title,
+.team ul li .staff {
+    margin: 1em 0;
+    font-size: 1.4em;
+}
+
+.events ul li .content,
+.team ul li .content {
+    text-indent: 1em;
+    font-size: 1.1em;
+    opacity: 0.6;
 }
