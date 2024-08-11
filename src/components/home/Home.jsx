@@ -22,10 +22,7 @@ export default function Home() {
                                 <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor.</p>
                                 <span>Shop now!</span>
                             </section>
-                            <img
-                                src="//theme188-electronics.myshopify.com/cdn/shop/t/2/assets/custom_showcase1_img.png?v=96945709399638749351437466315"
-                                alt=""
-                            />
+                            <img src="/images/custom_showcase1_img.avif" alt="Case 1" />
                         </div>
                     </Link>
 
@@ -36,10 +33,7 @@ export default function Home() {
                                 <p>Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed do eiusmod tempor.</p>
                                 <span>Shop now!</span>
                             </section>
-                            <img
-                                src="//theme188-electronics.myshopify.com/cdn/shop/t/2/assets/custom_showcase2_img.png?v=170087416945449932351437466315"
-                                alt=""
-                            />
+                            <img src="/images/custom_showcase2_img.avif" alt="Case 2" />
                         </div>
                     </Link>
                 </div>

@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import usePersistedCookie from "../hooks/usePersistedCookie";
+import { createContext, useContext } from "react";
+import usePersistedState from "../hooks/usePresistedState";
 
 export const AuthContext = createContext({
     _id: "",
@@ -7,23 +7,18 @@ export const AuthContext = createContext({
     lastName: "",
     email: "",
     isAuthenticated: false,
-    changeAuthState: () => null,
+    changeAuthState: (authState = {}) => null,
 });
 
 export function AuthContextProvider(props) {
-    const [authState, setAuthState] = useState({});
-    const { cookie } = usePersistedCookie("auth-cookie");
+    const [authState, setAuthstate] = usePersistedState("auth", {});
 
     const changeAuthState = (state) => {
-        setAuthState(state);
+        setAuthstate(state);
     };
 
     const contexData = {
-        _id: authState._id,
-        firstName: authState.firstName,
-        lastName: authState.lastName,
-        email: authState.email,
-        isAuthenticated: authState.isAuthenticated || !!cookie,
+        ...authState,
         changeAuthState,
     };
 

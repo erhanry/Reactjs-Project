@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
+import request from "../api/requester";
 import { useAuthContext } from "../context/AuthContext";
 import { useDelayedError } from "./useDelayedError";
-import request from "../api/requester";
+import { getCookie } from "../utils/CookieUtils";
 
 const regex = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+\.[a-zA-Z]+$/gim;
 
@@ -27,7 +28,12 @@ export const useLogin = () => {
                 throw result.message[0];
             }
 
-            changeAuthState({ ...result, isAuthenticated: true });
+            const isAuthenticated = !!getCookie("auth-cookie");
+
+            changeAuthState({
+                ...result,
+                isAuthenticated,
+            });
             navigate("/");
         } catch (err) {
             setError(err);
@@ -39,6 +45,7 @@ export const useLogin = () => {
 
 export const useRegister = () => {
     const navigate = useNavigate();
+
     const { changeAuthState } = useAuthContext();
     const { error, setError } = useDelayedError("", 3000);
 
@@ -75,7 +82,12 @@ export const useRegister = () => {
                 throw result.message[0];
             }
 
-            changeAuthState({ ...result, isAuthenticated: true });
+            const isAuthenticated = !!getCookie("auth-cookie");
+
+            changeAuthState({
+                ...result,
+                isAuthenticated,
+            });
             navigate("/");
         } catch (err) {
             setError(err);
@@ -85,7 +97,6 @@ export const useRegister = () => {
 };
 
 export const useLogout = () => {
-    const navigate = useNavigate();
     const { changeAuthState } = useAuthContext();
 
     const logoutService = async () => {

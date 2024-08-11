@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import Sidebar from "../sidebar/Sidebar";
 
 export default function NotFound() {
