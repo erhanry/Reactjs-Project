@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Sidebar from "../sidebar/Sidebar";
-import ProductArticle from "../ProductArticle/ProductArticle";
+import ProductArticle from "../productArticle/ProductArticle";
 
 import { useGetHomeProducts } from "../../hooks/useProduct";
 

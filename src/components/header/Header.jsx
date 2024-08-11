@@ -4,7 +4,7 @@ import { useAuthContext } from "../../context/AuthContext";
 import styles from "./Header.module.css";
 import { useProductContext } from "../../context/ProductContext";
 
-const ignorePath = ["products", "login", "register"];
+const ignorePath = ["login", "register"];
 
 export default function Header() {
     const { pathname } = useLocation();
@@ -89,7 +89,7 @@ export default function Header() {
                                 <Link to="/products">Products</Link>
                             </li>
                             <li>
-                                <Link to="/sale">Sale</Link>
+                                <Link to="/cart">My Cart</Link>
                             </li>
                             <li>
                                 <Link to="/about-us">About us</Link>

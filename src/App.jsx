@@ -7,16 +7,18 @@ import { AuthGuard, GuestGuard } from "./common/PrivateGuard";
 
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
-import Products from "./components/products/Products";
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
 import Logout from "./components/logout/Logout";
+import Products from "./components/products/Products";
 import Home from "./components/home/Home";
 import NotFound from "./components/notfound/NotFound";
 import AboutUs from "./components/about-us/About-us";
-import Sale from "./components/sale/Sale";
 import Category from "./components/category/Category";
 import Cart from "./components/cart/Cart";
+import ProductCreate from "./components/product-create/ProductCreate";
+import ProductEdit from "./components/product-edit/ProductsEdit";
+import ProductDetails from "./components/product-details/ProducDetails";
 
 function App() {
     return (
@@ -30,13 +32,13 @@ function App() {
                                 <Route path="/" element={<Home />} />
                                 <Route path="/products" element={<Products />} />
                                 <Route path="/products/:pageId/page" element={<Products />} />
-                                <Route path="/products/:productId/details" element={<Products />} />
-                                <Route path="/products/:productId/edit" element={<Products />} />
-                                <Route path="/products/:productId/create" element={<Products />} />
+                                <Route path="/products/:productId/details" element={<ProductDetails />} />
 
-                                <Route path="/sale" element={<Sale />} />
-                                <Route path="/sale/:pageId/page" element={<Sale />} />
-
+                                <Route element={<AuthGuard />}>
+                                    <Route path="/logout" element={<Logout />} />
+                                    <Route path="/products/create" element={<ProductCreate />} />
+                                    <Route path="/products/:productId/edit" element={<ProductEdit />} />
+                                </Route>
                                 <Route path="/category/:categoryPath" element={<Category />} />
 
                                 <Route path="/cart" element={<Cart />} />
@@ -45,9 +47,6 @@ function App() {
                                 <Route element={<GuestGuard />}>
                                     <Route path="/login" element={<Login />} />
                                     <Route path="/register" element={<Register />} />
-                                </Route>
-                                <Route element={<AuthGuard />}>
-                                    <Route path="/logout" element={<Logout />} />
                                 </Route>
 
                                 <Route path="/not-found" re element={<NotFound />} />

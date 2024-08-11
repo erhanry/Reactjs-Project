@@ -1,0 +1,57 @@
+.products_list {
+    display: flex;
+}
+
+.products_list article {
+    flex: 1 1 auto;
+}
+
+.products_list .row {
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 7em;
+    gap: 2em;
+}
+
+.products_list .content {
+    padding: 1em;
+    flex: 1 1 45%;
+    position: relative;
+}
+
+.products_list .content section {
+    width: 40%;
+}
+
+.products_list .content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.products_list .content section h4 {
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+.products_list .content section p {
+    font-size: 1.1em;
+}
+
+.products_list .first {
+    border: 1px solid #e7e7e7;
+}
+
+.products_list .second {
+    background-color: #19caaf;
+    color: #fff;
+}
+
+.products_list .first p {
+    color: #888;
+}
+
+.products_list .row .first h4,
+.products_list .row .first span {
+    color: #19caaf;
+}
