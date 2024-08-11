@@ -2,13 +2,15 @@ import { Link, useLocation } from "react-router-dom";
 
 import { useAuthContext } from "../../context/AuthContext";
 import styles from "./Header.module.css";
+import { useProductContext } from "../../context/ProductContext";
 
 const ignorePath = ["products", "login", "register"];
 
 export default function Header() {
     const { pathname } = useLocation();
 
-    const { isAuthenticated, cartItems } = useAuthContext();
+    const { isAuthenticated } = useAuthContext();
+    const { cartItems } = useProductContext();
     const showSidebarHeader = !ignorePath.some((path) => pathname.startsWith(`/${path}`));
 
     return (

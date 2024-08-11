@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
-import { useGetHomeProducts } from "../../hooks/useProduct";
-import ProductArticle from "../products/ProductArticle";
+
 import Sidebar from "../sidebar/Sidebar";
+import ProductArticle from "../ProductArticle/ProductArticle";
+
+import { useGetHomeProducts } from "../../hooks/useProduct";
 
 import styles from "./Home.module.css";
 
@@ -27,7 +29,7 @@ export default function Home() {
                         </div>
                     </Link>
 
-                    <Link to={``}>
+                    <Link to={"category/household"}>
                         <div className={`${styles.content} ${styles.second}`}>
                             <section>
                                 <h4>Home appliances</h4>

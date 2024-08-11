@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import request from "../api/requester";
 
+import { useProductContext } from "../context/ProductContext";
+
 export function useGetAllProducts() {
     const [products, setProducts] = useState([]);
 
@@ -33,7 +35,6 @@ export function useGetHomeProducts() {
 
     useEffect(() => {
         (async () => {
-            const count = await request.get("/product/count");
             const result = await request.get("/product/last/6");
             setProducts(result);
         })();
@@ -41,6 +42,7 @@ export function useGetHomeProducts() {
 
     return products;
 }
+
 export function useGetProductsCount() {
     const [count, setCount] = useState(0);
 
@@ -69,4 +71,36 @@ export function useGetPaginationProducts(limit, page) {
     }, [page]);
 
     return products;
+}
+
+export function useGetProductsWithCategory(categoryId) {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            try {
+                if (!categoryId) {
+                    throw "";
+                }
+
+                const result = await request.get(`/product/category/${categoryId}`);
+                setProducts(result);
+            } catch {
+                setProducts([]);
+            }
+        })();
+    }, [categoryId]);
+
+    return products;
+}
+
+export function useGelAllCategory() {
+    const { changeProductState } = useProductContext();
+
+    useEffect(() => {
+        (async () => {
+            const result = await request.get("/category");
+            changeProductState((oldState) => ({ ...oldState, categorys: result }));
+        })();
+    }, []);
 }
