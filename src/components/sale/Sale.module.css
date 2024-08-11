@@ -1,0 +1,57 @@
+.home_list {
+    display: flex;
+}
+
+.home_list article {
+    flex: 1 1 auto;
+}
+
+.home_list .row {
+    display: flex;
+    margin-top: 2em;
+    margin-bottom: 7em;
+    gap: 2em;
+}
+
+.home_list .content {
+    padding: 1em;
+    flex: 1 1 45%;
+    position: relative;
+}
+
+.home_list .content section {
+    width: 40%;
+}
+
+.home_list .content img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.home_list .content section h4 {
+    font-weight: normal;
+    font-size: 1.8em;
+}
+
+.home_list .content section p {
+    font-size: 1.1em;
+}
+
+.home_list .first {
+    border: 1px solid #e7e7e7;
+}
+
+.home_list .second {
+    background-color: #19caaf;
+    color: #fff;
+}
+
+.home_list .first p {
+    color: #888;
+}
+
+.home_list .row .first h4,
+.home_list .row .first span {
+    color: #19caaf;
+}
