@@ -13,10 +13,10 @@ export default function Footer() {
                                 <Link to="/">Home</Link>
                             </li>
                             <li>
-                                <Link to="/Search">Search</Link>
+                                <Link to="/cart">My Cart</Link>
                             </li>
                             <li>
-                                <Link to="/About">About Us</Link>
+                                <Link to="/about-us">About Us</Link>
                             </li>
                         </ul>
                     </div>
@@ -24,10 +24,10 @@ export default function Footer() {
                         <h5>Product</h5>
                         <ul>
                             <li>
-                                <Link to="#">Overview</Link>
+                                <Link to="/sale">Sale</Link>
                             </li>
                             <li>
-                                <Link to="#">Pricing</Link>
+                                <Link to="/products">Products</Link>
                             </li>
                         </ul>
                     </div>

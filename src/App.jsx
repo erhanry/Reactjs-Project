@@ -14,6 +14,7 @@ import NotFound from "./components/notfound/NotFound";
 import AboutUs from "./components/about-us/About-us";
 import Sale from "./components/sale/Sale";
 import Category from "./components/category/Category";
+import Cart from "./components/cart/Cart";
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
 
                             <Route path="/category/:categoryPath" element={<Category />} />
 
+                            <Route path="/cart" element={<Cart />} />
                             <Route path="/about-us" element={<AboutUs />} />
 
                             <Route path="/login" element={<Login />} />
